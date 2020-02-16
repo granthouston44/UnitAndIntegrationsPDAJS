@@ -34,5 +34,49 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('8')
   })
 
+  it('output as expected for negative number', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_subtract.operator')).click();
+    element(by.css('#number9')).click();
+
+    element(by.css('#operator_equals.operator')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-7')
+  })
+
+  it('output as expected for decimals', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    element(by.css('#operator_divide.operator')).click();
+    element(by.css('#number2')).click();
+
+
+    element(by.css('#operator_equals.operator')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('0.5')
+  })
+
+  it('output as expected for large number', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_equals.operator')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('86093442')
+  })
+
 
 });
