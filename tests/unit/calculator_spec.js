@@ -24,5 +24,20 @@ describe('calculator', function () {
     calculator.operatorClick('=');
     assert.strictEqual(calculator.previousTotal, 3)
   })
+  it('it can multiply', function(){
+    calculator.numberClick(3);
+    calculator.operatorClick('*');
+    calculator.numberClick(5);
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 15)
+  })
+  it('it can divide', function(){
+    calculator.numberClick(21);
+    calculator.operatorClick('/');
+    calculator.numberClick(7);
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 3)
+  })
+  
 
 });
