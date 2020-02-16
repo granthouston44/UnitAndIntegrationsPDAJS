@@ -52,7 +52,11 @@ Calculator.prototype.operatorClick = function(operator){
       this.multiply(this.runningTotal);
       break;
       case ('/'):
+      if(this.runningTotal == '0'){
+        this.runningTotal = 'error';
+      } else{
       this.divide(this.runningTotal);
+    }
       break;
     }
   }

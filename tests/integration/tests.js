@@ -78,5 +78,16 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('86093442')
   })
 
+  it('should return an error if divide by 0', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_divide.operator')).click();
+    element(by.css('#number0')).click();
+
+
+    element(by.css('#operator_equals.operator')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('error')
+  })
+
 
 });

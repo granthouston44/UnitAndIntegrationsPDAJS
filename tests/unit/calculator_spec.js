@@ -62,5 +62,6 @@ describe('calculator', function () {
     calculator.operatorClick('=');
     assert.strictEqual(calculator.previousTotal, 8)
   })
+  
 
 });
