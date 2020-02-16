@@ -38,6 +38,29 @@ describe('calculator', function () {
     calculator.operatorClick('=');
     assert.strictEqual(calculator.previousTotal, 3)
   })
-  
+  it('it can concatenate multiple button presses', function(){
+    calculator.numberClick(7);
+    calculator.numberClick(3);
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 73);
+  })
+  it('it can chain multiple operations together', function(){
+    calculator.numberClick(7);
+    calculator.operatorClick('-');
+    calculator.numberClick(4);
+    calculator.operatorClick('*')
+    calculator.numberClick('2');
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 6)
+  })
+  it('it can clear the running total without affecting the calculation', function(){
+    calculator.numberClick(2);
+    calculator.operatorClick('+');
+    calculator.numberClick(2);
+    calculator.clearClick();
+    calculator.numberClick('6');
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 8)
+  })
 
 });
