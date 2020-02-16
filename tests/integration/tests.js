@@ -23,6 +23,16 @@ describe('calculator functionality', function() {
     element(by.css('#operator_equals.operator')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('4')
   })
+  it('multiple operations can be chained together', function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add.operator')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_multiply.operator')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals.operator')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('8')
+  })
 
 
 });
