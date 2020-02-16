@@ -17,5 +17,12 @@ describe('calculator', function () {
     calculator.operatorClick('=');
     assert.strictEqual(calculator.previousTotal, 5)
   })
+  it('it can subtract', function(){
+    calculator.numberClick(7);
+    calculator.operatorClick('-');
+    calculator.numberClick(4);
+    calculator.operatorClick('=');
+    assert.strictEqual(calculator.previousTotal, 3)
+  })
 
 });
